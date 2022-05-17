@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1652643398 source:c:\users\ekimh\documents\~my_projects\coding_projects\cpp\warsimulator\main.cpp
+	<iostream>
+	<vector>
+	<time.h>
+
