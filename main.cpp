@@ -118,7 +118,7 @@ void play(vector<Player> ps)
 		{
 			int turns = rand() % (1000 / players.size());
 			
-			counter = turns + 36;
+			counter = turns + (36 / players.size());
 			
 			break;
 		}
@@ -241,32 +241,38 @@ void start(int deckCount, int playerCount)
 
 int main() 
 {
-	bool debug = true;
+	bool debug = false;
 	cout << "Welcome to the War Simulator!\n\n";
 	
 	int playerCount = 0;
-	int deckCount = 0;
-//	float turnTime = 0.0;
+	int deckCount = 1;
 	
 	if(debug)
 	{
 		playerCount = 3;
-		deckCount = 1;
-//		turnTime = 0.24;
+//		deckCount = 1;
+		
+		start(deckCount, playerCount);
 	}
 	else
 	{
-		cout << "Number of players: ";
-		cin >> playerCount;
+		while(true)
+		{
+			cout << "Number of players: ";
+			cin >> playerCount;
 		
-		cout << "Number of Decks: ";
-		cin >> deckCount;
-		
-//		cout << "Seconds per turn (0.24): ";
-//		cin >> turnTime;
+//			cout << "Number of Decks: ";
+//			cin >> deckCount;
+			
+			if(playerCount == 0)
+			{
+				break;
+			}
+			
+			start(deckCount, playerCount);
+			
+		}
 	}
-	
-	start(deckCount, playerCount);
 	
     return 0;
 }
